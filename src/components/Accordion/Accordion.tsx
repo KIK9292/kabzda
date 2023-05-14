@@ -5,13 +5,12 @@ type AccordionTitlePropsType = {
 
 }
 
-function AccordionTitle(props:AccordionTitlePropsType) {
+function AccordionTitle(props: AccordionTitlePropsType) {
     console.log("AccordionTitle rendering")
     return (
         <h3>{props.title}</h3>
     )
 }
-
 
 
 function AccordionBody() {
@@ -23,28 +22,38 @@ function AccordionBody() {
     </ul>
 
 
-
 }
 
-type AccordionPropsType ={
+type AccordionPropsType = {
     titleValue: string;
     collapsed: boolean;
 
 }
 
 
-function Accordion(props:AccordionPropsType) {
-    console.log("Accordion rendering")
-    if (props.collapsed === true){
-        return (<div>
-            <AccordionTitle title={props.titleValue}/>
-            <AccordionBody />
-        </div>)
-    }else{
-        return <div>
-            <AccordionTitle title={props.titleValue}/>
-            </div>
-    }}
+// function Accordion1(props: AccordionPropsType) {
+//     console.log("Accordion rendering")
+//     if (props.collapsed === true) {
+//         return (<div>
+//             <AccordionTitle title={props.titleValue}/>
+//
+//         </div>)
+//     } else {
+//         return <div>
+//             <AccordionTitle title={props.titleValue}/>
+//             <AccordionBody/>
+//         </div>
+//     }
+// }
 
+
+function Accordion(props: AccordionPropsType) {
+    console.log("Accordion rendering")
+
+    return <div>
+        <AccordionTitle title={props.titleValue}/>
+        {!props.collapsed && <AccordionBody/>}
+    </div>
+}
 
 export default Accordion;
