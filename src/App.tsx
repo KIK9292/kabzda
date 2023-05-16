@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {MouseEventHandler, useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
+import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
 
 
 // function hello() {
@@ -13,6 +14,8 @@ import {OnOff} from "./components/OnOff/OnOff";
 
 // function declaration
 function App() {
+
+
     console.log("APP rendering")
     return (
         <div>
@@ -20,8 +23,8 @@ function App() {
             <PageTitle title={"My friends!!!"}/>
             Article 1
             <Rating value={3}/>
-            <Accordion titleValue={"Menu"} collapsed = {true}/>
-            <Accordion titleValue={"Users"} collapsed = {false}/>
+            <Accordion titleValue={"Menu"} collapsed={true}/>
+            <Accordion titleValue={"Users"} collapsed={false}/>
             Article 2
             <Rating value={5}/>
             <Rating value={4}/>
@@ -29,8 +32,11 @@ function App() {
             <Rating value={2}/>
             <Rating value={1}/>
             <Rating value={0}/>
-            <OnOff selec={true}/>
-            <OnOff selec={false}/>
+            <OnOff/>
+            <OnOff/>
+            <OnOff/>
+            <UncontrolledAccordion titleValue={"Menu"} />
+            <UncontrolledAccordion titleValue={"Users"} />
 
         </div>
 
