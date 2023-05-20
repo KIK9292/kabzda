@@ -3,7 +3,8 @@ import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
-import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import {UncontrolledRating} from "./components/UncontrolledRating/UncontroledRating";
 
 
 // function hello() {
@@ -18,26 +19,13 @@ function App() {
 
     console.log("APP rendering")
     return (
-        <div>
-            <PageTitle title={"This is APP component"}/>
-            <PageTitle title={"My friends!!!"}/>
-            Article 1
-            <Rating value={3}/>
-            <Accordion titleValue={"Menu"} collapsed={true}/>
-            <Accordion titleValue={"Users"} collapsed={false}/>
-            Article 2
-            <Rating value={5}/>
-            <Rating value={4}/>
-            <Rating value={3}/>
-            <Rating value={2}/>
-            <Rating value={1}/>
-            <Rating value={0}/>
-            <OnOff/>
-            <OnOff/>
-            <OnOff/>
-            <UncontrolledAccordion titleValue={"Menu"} />
-            <UncontrolledAccordion titleValue={"Users"} />
+        <div className={"App"}>
 
+            <OnOff/>
+            <UncontrolledAccordion titleValue={"Menu"}/>
+            <UncontrolledAccordion titleValue={"Users"}/>
+            <UncontrolledRating/>
+            <Rating value={3}/>
         </div>
 
     );

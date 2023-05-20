@@ -1,20 +1,34 @@
 import React, {MouseEventHandler, useState} from "react";
 
+type UncontrolledAccordionPropsType = {
+    titleValue: string
+}
+
+export function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
+    console.log("Accordion rendering")
+    const [collapsed, setCollapsed] = useState<boolean>(false)
+
+    return <div>
+        <UncontrolledAccordionTitle titleValue={props.titleValue} onClick={() => {setCollapsed(!collapsed)}}/>
+        {!collapsed && <UncontrolledAccordionBody/>}
+    </div>
+}
+
 type UncontrolledAccordionTitlePropsType = {
     titleValue: string
+    onClick: () => void
 
 
 }
 
-function UncontrolledAccordionTitle(props: UncontrolledAccordionTitlePropsType){
-    const [shrink, setShrink] = useState<boolean>(false)
-    const onCickHandler = () => {
-        (shrink === false)?setShrink(true) : setShrink(false)
-    }
+
+function UncontrolledAccordionTitle(props: UncontrolledAccordionTitlePropsType) {
+
+
     console.log("AccordionTitle rendering")
     return (<div>
-        <h3 onClick={onCickHandler}>{props.titleValue}</h3>
-    {!shrink && <UncontrolledAccordionBody/>}</div>
+            <h3 onClick={() => {props.onClick() }}>--{props.titleValue}--</h3>
+        </div>
     )
 }
 
@@ -53,13 +67,5 @@ function UncontrolledAccordionBody() {
 // }
 
 
-function UncontrolledAccordion(props: UncontrolledAccordionTitlePropsType) {
-    console.log("Accordion rendering")
 
-    return <div>
-        <UncontrolledAccordionTitle titleValue={props.titleValue} />
 
-    </div>
-}
-
-export default UncontrolledAccordion;
